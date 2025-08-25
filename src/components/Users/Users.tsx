@@ -1,16 +1,25 @@
+import { useNavigation } from '@react-navigation/native';
 import { useEffect } from 'react';
 import { View, VirtualizedList } from 'react-native';
 import { useSelector } from 'react-redux';
 import { selectUsers } from '../../redux/users/selectors.ts';
-import { UIText } from '../ui';
+import { UIButton, UIText } from '../ui';
 import { getItem, getItemCount } from './helpers';
 import { INITIAL_NUMBER_TO_RENDER } from './helpers/constants.ts';
 import { useUsersQuery } from './hooks/useUsersQuery.ts';
+import { styles } from './Users.style.ts';
 import UsersItem from './UsersItem/UsersItem.tsx';
 
 const Users = () => {
+  const navigation = useNavigation<{
+    navigate: (routeName: 'CreateUser') => void;
+  }>();
   const users = useSelector(selectUsers);
   const { fetchData, loading } = useUsersQuery();
+  
+  const handleNavigate = () => {
+    navigation.navigate('CreateUser');
+  };
 
   useEffect(() => {
     fetchData();
@@ -40,6 +49,11 @@ const Users = () => {
             phone={item.phone}
           />
         )}
+      />
+      <UIButton
+        name={'Create User'}
+        onPress={handleNavigate}
+        customStyles={styles.button}
       />
     </View>
   );

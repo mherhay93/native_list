@@ -1,5 +1,5 @@
 import type { IUserDetailsProps } from '../../components/Users/types';
-import UserDetails from '../../components/Users/UserDetails/UserDetails.tsx';
+import UserDetails from '../../components/Users/UserDetails';
 
 const UserDetailsScreen = ({ route }: IUserDetailsProps) => (
   <UserDetails route={route} />
