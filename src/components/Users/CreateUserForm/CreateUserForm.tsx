@@ -26,15 +26,16 @@ const CreateUserForm = () => {
     <View style={styles.container}>
       <UIText style={styles.label}>Name</UIText>
       <Controller
-        control={control}
         name="name"
+        control={control}
         render={({ field: { onChange, onBlur, value } }) => (
           <TextInput
-            style={styles.input}
-            placeholder="Enter your name"
-            onBlur={onBlur}
-            onChangeText={onChange}
             value={value}
+            onBlur={onBlur}
+            style={styles.input}
+            onChangeText={onChange}
+            placeholder="Enter your name"
+            placeholderTextColor={styles.placeholder.color}
           />
         )}
       />
@@ -44,16 +45,17 @@ const CreateUserForm = () => {
 
       <UIText style={styles.label}>Email</UIText>
       <Controller
-        control={control}
         name="email"
+        control={control}
         render={({ field: { onChange, onBlur, value } }) => (
           <TextInput
+            value={value}
+            onBlur={onBlur}
             style={styles.input}
+            onChangeText={onChange}
             placeholder="Enter your email"
             keyboardType="email-address"
-            onBlur={onBlur}
-            onChangeText={onChange}
-            value={value}
+            placeholderTextColor={styles.placeholder.color}
           />
         )}
       />
@@ -63,15 +65,16 @@ const CreateUserForm = () => {
 
       <UIText style={styles.label}>Phone</UIText>
       <Controller
-        control={control}
         name="phone"
+        control={control}
         render={({ field: { onChange, onBlur, value } }) => (
           <TextInput
-            style={styles.input}
-            placeholder="Enter your phone"
             onBlur={onBlur}
+            style={styles.input}
             onChangeText={onChange}
             value={value?.toString()}
+            placeholder="Enter your phone"
+            placeholderTextColor={styles.placeholder.color}
           />
         )}
       />

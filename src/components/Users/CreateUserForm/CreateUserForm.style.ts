@@ -20,4 +20,7 @@ export const styles = StyleSheet.create({
     color: 'red',
     marginBottom: 10,
   },
+  placeholder: {
+    color: '#686868',
+  },
 });
