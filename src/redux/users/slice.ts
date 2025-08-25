@@ -1,5 +1,7 @@
-import { createSlice, Draft, PayloadAction } from '@reduxjs/toolkit';
-import { IInitialState, IUsers } from './types.ts';
+import type { Draft, PayloadAction } from '@reduxjs/toolkit';
+import { createSlice } from '@reduxjs/toolkit';
+import type { IUser } from '../../types/users.ts';
+import type { IInitialState } from './types.ts';
 
 const initialState: IInitialState = {
   users: [],
@@ -9,10 +11,7 @@ const usersSlice = createSlice({
   name: 'users',
   initialState,
   reducers: {
-    setUsers(
-      state: Draft<IInitialState>,
-      action: PayloadAction<IUsers[]>,
-    ) {
+    setUsers(state: Draft<IInitialState>, action: PayloadAction<IUser[]>) {
       state.users = action.payload;
     },
   },

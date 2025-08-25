@@ -1,5 +1,5 @@
-export interface IInitialState {
-  users: IUsers[];
-}
+import type { IUser } from '../../types/users.ts';
 
-export interface IUsers {}
+export interface IInitialState {
+  users: IUser[];
+}
