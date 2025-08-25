@@ -1,5 +1,5 @@
 import type { IUser } from '../../../types/users.ts';
-import type { IUsersItem } from '../types';
+import { IUsersItem } from '../types';
 import { DEFAULT_USERS_RESULTS } from './constants.ts';
 
 export const getItem = (_data: IUser[], index: number): IUsersItem => {
@@ -13,3 +13,10 @@ export const getItem = (_data: IUser[], index: number): IUsersItem => {
 };
 
 export const getItemCount = (_data: IUser[]) => DEFAULT_USERS_RESULTS;
+
+export const makeEntities = (_data: IUser[]) => {
+  return _data.reduce((acc, item) => {
+    acc[item.email] = item;
+    return acc;
+  }, {} as Record<string, IUser>);
+};

@@ -1,2 +1,2 @@
-export const DEFAULT_USERS_RESULTS = 100;
+export const DEFAULT_USERS_RESULTS = 1000;
 export const INITIAL_NUMBER_TO_RENDER = 20;

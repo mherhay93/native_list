@@ -1,17 +1,17 @@
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import UsersScreen from '../../../screen/UsersScreen';
+import UsersStack from './UsersNavigator.tsx';
 
 const Stack = createNativeStackNavigator();
 
 const AppStack = () => {
   return (
     <Stack.Navigator
-      initialRouteName="Users"
+      initialRouteName="UsersScreen"
       screenOptions={{
-        headerTitleAlign: 'center',
+        headerShown: false,
       }}
     >
-      <Stack.Screen name="Users" component={UsersScreen} />
+      <Stack.Screen name="UsersScreen" component={UsersStack} />
     </Stack.Navigator>
   );
 };

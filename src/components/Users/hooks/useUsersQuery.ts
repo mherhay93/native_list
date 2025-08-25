@@ -3,9 +3,10 @@ import { Alert } from 'react-native';
 import { useDispatch } from 'react-redux';
 import { request } from '../../../helpers/axios.ts';
 import { usersReducers } from '../../../redux/users/slice.ts';
+import { makeEntities } from '../helpers';
 import { DEFAULT_USERS_RESULTS } from '../helpers/constants.ts';
 
-const { setUsers } = usersReducers;
+const { setUsers, setUsersEntities } = usersReducers;
 
 export const useUsersQuery = () => {
   const [loading, setLoading] = useState(true);
@@ -17,6 +18,8 @@ export const useUsersQuery = () => {
       method: 'GET',
     })
       .then(res => {
+        const entities = makeEntities(res.data.results);
+        dispatch(setUsersEntities(entities));
         dispatch(setUsers(res.data.results));
       })
       .catch(err => {
