@@ -50,9 +50,9 @@ export const defaultUser: IUser = {
     value: '',
   },
   picture: {
-    large: '../assets/images/user.png',
-    medium: '../assets/images/user.png',
-    thumbnail: '../assets/images/user.png',
+    large: '',
+    medium: '',
+    thumbnail: '',
   },
   nat: '',
 };

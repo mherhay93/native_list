@@ -16,6 +16,11 @@ const UserDetails = () => {
   };
   const user = useSelector(selectUserByEmail(email));
   const dispatch = useDispatch();
+  
+  const imgSource = user.picture.large
+      ? { uri: user.picture.large }
+      : require('../../../assets/icons/UserIcon.png');
+  
   const handleSave = (key: string, value: string) => {
     if (user) {
       dispatch(setUserInUsers({ ...user, [key]: value }));
@@ -28,7 +33,7 @@ const UserDetails = () => {
 
   return (
     <View style={styles.container}>
-      <Image source={{ uri: user.picture.large }} style={styles.image} />
+      <Image source={imgSource} style={styles.image} />
       <UIText
         style={styles.name}
       >{`${user.name.first} ${user.name.last}`}</UIText>
