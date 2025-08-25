@@ -1,1 +1,1 @@
-export { default } from './RootNavigator.tsx';
+export { default } from './RootNavigator';

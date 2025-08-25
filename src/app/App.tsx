@@ -1,6 +1,6 @@
 import { StatusBar, useColorScheme } from 'react-native';
-import AppContent from './AppContent.tsx';
-import AppProvider from './AppProvider.tsx';
+import AppContent from './AppContent';
+import AppProvider from './AppProvider';
 
 function App() {
   const isDarkMode = useColorScheme() === 'dark';

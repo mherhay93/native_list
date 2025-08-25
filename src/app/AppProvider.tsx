@@ -1,7 +1,7 @@
 import type { PropsWithChildren } from 'react';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { Provider } from 'react-redux';
-import store from '../redux/store.ts';
+import store from '../redux/store';
 
 const AppProvider = ({ children }: PropsWithChildren) => {
     return (

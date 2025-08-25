@@ -14,4 +14,8 @@ export const styles = StyleSheet.create({
   text: {
     fontWeight: 'bold',
   },
+
+  disabled: {
+    opacity: 0.5,
+  },
 });

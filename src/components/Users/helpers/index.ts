@@ -1,6 +1,6 @@
-import type { IUser } from '../../../types/users.ts';
+import type { IUser } from '../../../types/users';
 import { IUsersItem } from '../types';
-import { DEFAULT_USERS_RESULTS } from './constants.ts';
+import { DEFAULT_USERS_RESULTS } from './constants';
 
 export const getItem = (_data: IUser[], index: number): IUsersItem => {
   return {

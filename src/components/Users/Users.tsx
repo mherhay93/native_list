@@ -2,30 +2,33 @@ import { useNavigation } from '@react-navigation/native';
 import { useEffect } from 'react';
 import { View, VirtualizedList } from 'react-native';
 import { useSelector } from 'react-redux';
-import { selectUsers } from '../../redux/users/selectors.ts';
+import { selectIsFetched, selectUsers } from '../../redux/users/selectors';
 import { UIButton, UIText } from '../ui';
 import { getItem, getItemCount } from './helpers';
-import { INITIAL_NUMBER_TO_RENDER } from './helpers/constants.ts';
-import { useUsersQuery } from './hooks/useUsersQuery.ts';
-import { styles } from './Users.style.ts';
-import UsersItem from './UsersItem/UsersItem.tsx';
+import { INITIAL_NUMBER_TO_RENDER } from './helpers/constants';
+import { useUsersQuery } from './hooks/useUsersQuery';
+import { styles } from './Users.style';
+import UsersItem from './UsersItem/UsersItem';
 
 const Users = () => {
   const navigation = useNavigation<{
     navigate: (routeName: 'CreateUser') => void;
   }>();
   const users = useSelector(selectUsers);
+  const isFetched = useSelector(selectIsFetched);
   const { fetchData, loading } = useUsersQuery();
-  
+
   const handleNavigate = () => {
     navigation.navigate('CreateUser');
   };
 
   useEffect(() => {
-    fetchData();
+    if (!isFetched) {
+      fetchData();
+    }
   }, []);
 
-  if (loading) {
+  if (loading && !isFetched) {
     return <UIText>Loading...</UIText>;
   }
 
@@ -34,7 +37,7 @@ const Users = () => {
   }
 
   return (
-    <View>
+    <View style={styles.container}>
       <VirtualizedList
         data={users}
         getItem={getItem}

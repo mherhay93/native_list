@@ -1,5 +1,4 @@
 import type { RouteProp } from '@react-navigation/native';
-import type { TNavigationStacksParamList } from '../../../types/navigationStacks.ts';
 
 export interface IUsersItemProps {
   img: string;
@@ -12,11 +11,17 @@ export interface IUsersItem extends IUsersItemProps {
   id: string;
 }
 
-export type UserDetailsNavigationProps = RouteProp<
-  TNavigationStacksParamList,
+type TUsersStackParamList = {
+  UserDetails: { email: string };
+};
+
+export type TUserDetailsRouteProp = RouteProp<
+  TUsersStackParamList,
   'UserDetails'
 >;
 
-export interface IUserDetailsProps {
-  route?: UserDetailsNavigationProps;
+export interface IUserCreateForm {
+  name: string;
+  phone: number;
+  email: string;
 }

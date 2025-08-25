@@ -1,17 +1,26 @@
 import type { ComponentProps } from 'react';
 import type { StyleProp, ViewStyle } from 'react-native';
 import { TouchableOpacity } from 'react-native';
-import { UIText } from '../index.ts';
-import { styles } from './UIButon.style.ts';
+import { UIText } from '../index';
+import { styles } from './UIButon.style';
 
 interface IUIButtonProps extends ComponentProps<typeof TouchableOpacity> {
   customStyles?: StyleProp<ViewStyle>;
   name: string;
 }
 
-const UIButton = ({ customStyles, name, ...rest }: IUIButtonProps) => {
+const UIButton = ({
+  customStyles,
+  disabled,
+  name,
+  ...rest
+}: IUIButtonProps) => {
   return (
-    <TouchableOpacity style={[styles.container, customStyles]} {...rest}>
+    <TouchableOpacity
+      disabled={disabled}
+      style={[styles.container, customStyles, disabled && styles.disabled]}
+      {...rest}
+    >
       <UIText style={styles.text}>{name}</UIText>
     </TouchableOpacity>
   );

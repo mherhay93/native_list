@@ -1,6 +1,6 @@
 import axios from 'axios';
-import type { IRequest } from '../types/axios.ts';
-import { BASE_URL } from './constants.ts';
+import type { IRequest } from '../types/axios';
+import { BASE_URL } from './constants';
 
 export const request = <B, P>({
   body,

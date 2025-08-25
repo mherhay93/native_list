@@ -1,12 +1,12 @@
 import { useState } from 'react';
 import { Alert } from 'react-native';
 import { useDispatch } from 'react-redux';
-import { request } from '../../../helpers/axios.ts';
-import { usersReducers } from '../../../redux/users/slice.ts';
+import { request } from '../../../helpers/axios';
+import { usersReducers } from '../../../redux/users/slice';
 import { makeEntities } from '../helpers';
-import { DEFAULT_USERS_RESULTS } from '../helpers/constants.ts';
+import { DEFAULT_USERS_RESULTS } from '../helpers/constants';
 
-const { setUsers, setUsersEntities } = usersReducers;
+const { setUsers, setUsersEntities, setUI } = usersReducers;
 
 export const useUsersQuery = () => {
   const [loading, setLoading] = useState(true);
@@ -21,6 +21,7 @@ export const useUsersQuery = () => {
         const entities = makeEntities(res.data.results);
         dispatch(setUsersEntities(entities));
         dispatch(setUsers(res.data.results));
+        dispatch(setUI({ fetched: true }));
       })
       .catch(err => {
         Alert.alert(err?.message);

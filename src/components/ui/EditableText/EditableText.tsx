@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import type { StyleProp, TextStyle } from 'react-native';
 import { TextInput, View } from 'react-native';
-import { IconButton, UIText } from '../index.ts';
-import { styles } from './EditableText.style.ts';
+import { IconButton, UIText } from '../index';
+import { styles } from './EditableText.style';
 
 interface IEditableText {
   text: string;

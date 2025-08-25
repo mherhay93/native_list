@@ -1,15 +1,17 @@
+import { useRoute } from '@react-navigation/native';
 import { Image, View } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
-import { selectUserByEmail } from '../../../redux/users/selectors.ts';
-import { usersReducers } from '../../../redux/users/slice.ts';
+import { selectUserByEmail } from '../../../redux/users/selectors';
+import { usersReducers } from '../../../redux/users/slice';
 import { EditableText, UIText } from '../../ui';
-import type { IUserDetailsProps } from '../types';
-import { styles } from './UserDetails.style.ts';
+import { TUserDetailsRouteProp } from '../types';
+import { styles } from './UserDetails.style';
 
 const { setUserInUsers } = usersReducers;
 
-const UserDetails = ({ route }: IUserDetailsProps) => {
-  const { email } = route?.params ?? {
+const UserDetails = () => {
+  const { params } = useRoute<TUserDetailsRouteProp>();
+  const { email } = params ?? {
     email: '',
   };
   const user = useSelector(selectUserByEmail(email));

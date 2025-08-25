@@ -1,11 +1,14 @@
 import type { Draft, PayloadAction } from '@reduxjs/toolkit';
 import { createSlice } from '@reduxjs/toolkit';
-import type { IUser } from '../../types/users.ts';
-import type { IInitialState } from './types.ts';
+import type { IUser } from '../../types/users';
+import { IInitialState, IUsersUI } from './types';
 
 const initialState: IInitialState = {
   users: [],
   usersEntities: {},
+  UI: {
+    fetched: false,
+  },
 };
 
 const usersSlice = createSlice({
@@ -30,6 +33,14 @@ const usersSlice = createSlice({
         state.users[index] = targetUser;
         state.usersEntities[targetUser.email] = targetUser;
       }
+    },
+    addNewUser(state: Draft<IInitialState>, action: PayloadAction<IUser>) {
+      const newUser = action.payload;
+      state.users.unshift(newUser);
+      state.usersEntities[newUser.email] = newUser;
+    },
+    setUI(state: Draft<IInitialState>, action: PayloadAction<IUsersUI>) {
+      state.UI = action.payload;
     },
   },
 });

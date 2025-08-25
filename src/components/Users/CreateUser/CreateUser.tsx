@@ -1,11 +1,11 @@
 import { View } from 'react-native';
-import { UIText } from '../../ui';
-import { styles } from './CreateUser.style.ts';
+import CreateUserForm from '../CreateUserForm/CreateUserForm';
+import { styles } from './CreateUser.style';
 
 const CreateUser = () => {
   return (
     <View style={styles.container}>
-      <UIText>455</UIText>
+      <CreateUserForm />
     </View>
   );
 };

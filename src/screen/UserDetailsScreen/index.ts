@@ -1,1 +1,1 @@
-export { default } from './UserDetailsScreen.tsx';
+export { default } from './UserDetailsScreen';

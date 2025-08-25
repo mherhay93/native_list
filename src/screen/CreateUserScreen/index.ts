@@ -1,1 +1,1 @@
-export { default } from './CreateUserScreen.tsx';
+export { default } from './CreateUserScreen';

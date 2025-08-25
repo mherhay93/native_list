@@ -1,9 +1,9 @@
 import { useNavigation } from '@react-navigation/native';
 import { Image, TouchableOpacity, View } from 'react-native';
-import { IUserDetailsQuery } from '../../../types/navigationStacks.ts';
+import { IUserDetailsQuery } from '../../../types/navigationStacks';
 import { UIText } from '../../ui';
 import type { IUsersItemProps } from '../types';
-import { styles } from './UsersItem.style.ts';
+import { styles } from './UsersItem.style';
 
 const UsersItem = ({ img, name, email, phone }: IUsersItemProps) => {
   const navigation = useNavigation<{

@@ -1,6 +1,6 @@
-export type TNavigationStacksParamList = {
-  UserDetails: IUserDetailsQuery;
-};
+export interface IUsersNavigationConfigs {
+  hideRequest?: boolean;
+}
 
 export interface IUserDetailsQuery {
   email: string;

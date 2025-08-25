@@ -1,5 +1,3 @@
-import type { IRequest } from './axios.ts';
-
 export interface IName {
   last: string;
   title: string;
@@ -75,8 +73,4 @@ export interface IUser {
   picture: IPicture;
   location: ILocation;
   registered: IRegistered;
-}
-
-export interface IQueryUsers<B, P> extends Partial<IRequest<B, P>> {
-  results?: number;
 }

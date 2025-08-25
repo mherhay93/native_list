@@ -1,5 +1,5 @@
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import UsersStack from './UsersNavigator.tsx';
+import UsersStack from './UsersNavigator';
 
 const Stack = createNativeStackNavigator();
 

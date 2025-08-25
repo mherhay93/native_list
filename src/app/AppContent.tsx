@@ -1,6 +1,6 @@
 import { View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
-import { styles } from './App.style.ts';
+import { styles } from './App.style';
 import RootNavigation from './navigators';
 
 function AppContent() {
